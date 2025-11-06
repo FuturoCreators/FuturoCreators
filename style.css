@@ -2,21 +2,22 @@
 /* 1. RESET BÁSICO E DEFINIÇÃO DE VARIÁVEIS */
 /* ========================================= */
 :root {
-    /* Cores PKXD/Koosh */
+    /* Cores PKXD/Koosh - Incluindo o DOURADO para destaque */
     --cor-fundo-principal: #1C1C3A; /* Azul/Roxo Escuro Moderno */
-    --cor-acento-rosa: #FF4C65; /* Rosa Choque */
-    --cor-acento-verde: #57F287; /* Verde Neon */
+    --cor-acento-rosa: #FF4C65; /* Rosa Choque (Energia) */
+    --cor-acento-verde: #57F287; /* Verde Neon (Botões de Ação) */
+    --cor-acento-dourado: #FFD700; /* DOURADO PURO (Prêmio/Destaque) */
     --cor-texto-claro: #FFFFFF;
     --cor-secundaria: #33335D; /* Cor para seções ou cards */
 
-    /* Fonte Importada no HTML */
     --fonte-principal: 'Poppins', sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho do elemento */
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Rolagem suave entre as seções */
 }
 
 body {
@@ -27,15 +28,15 @@ body {
 }
 
 /* ========================================= */
-/* 2. ESTILIZAÇÃO DO CABEÇALHO (HEADER) */
+/* 2. CABEÇALHO (HEADER) E NAVEGAÇÃO */
 /* ========================================= */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    background-color: rgba(28, 28, 58, 0.95); /* Fundo semi-transparente */
-    position: sticky; /* Fica fixo no topo ao rolar */
+    background-color: rgba(28, 28, 58, 0.95);
+    position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -48,7 +49,7 @@ header {
 }
 
 .logo strong {
-    color: var(--cor-acento-verde);
+    color: var(--cor-acento-dourado); /* DOURADO no destaque do nome! */
 }
 
 header nav a {
@@ -63,15 +64,25 @@ header nav a {
 
 header nav a:hover {
     color: var(--cor-fundo-principal);
-    background-color: var(--cor-acento-rosa);
+    background-color: var(--cor-acento-dourado); /* DOURADO no hover! */
+}
+
+/* Menu Toggle (Escondido em desktop, visível no mobile) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--cor-texto-claro);
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 /* ========================================= */
-/* 3. ESTILIZAÇÃO DAS SEÇÕES GERAIS */
+/* 3. SEÇÕES GERAIS E TIPOGRAFIA */
 /* ========================================= */
 section {
     padding: 80px 5%;
-    min-height: 100vh; /* Ocupa a altura total da tela */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,7 +93,7 @@ section {
 section h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
-    color: var(--cor-acento-verde);
+    color: var(--cor-acento-dourado); /* Título em DOURADO */
     text-shadow: 2px 2px var(--cor-acento-rosa); /* Efeito "gamer" */
 }
 
@@ -90,25 +101,20 @@ section h2 {
 /* 4. SEÇÃO HOME / DESTAQUE (HERO) */
 /* ========================================= */
 .hero-section {
-    background: url('fundo-pkxd-simulado.png') no-repeat center center/cover; /* Substitua por uma imagem de fundo do PKXD! */
+    background: url('fundo-pkxd-simulado.png') no-repeat center center/cover;
     position: relative;
-    padding-top: 100px; /* Espaço para o header */
+    padding-top: 100px;
 }
 
-.hero-section::before {
+.hero-section::before { /* Camada de escurecimento */
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(28, 28, 58, 0.8); /* Camada escura para o texto se destacar */
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(28, 28, 58, 0.85);
     z-index: 1;
 }
 
-.hero-section * {
-    z-index: 2; /* Garante que o conteúdo fique acima da camada escura */
-}
+.hero-section * { z-index: 2; }
 
 .hero-section h1 {
     font-size: 3.5em;
@@ -123,12 +129,12 @@ section h2 {
 }
 
 .video-destaque iframe {
-    width: 90vw; /* Ocupa 90% da largura da tela */
+    width: 90vw;
     max-width: 800px;
     height: 450px;
-    border: 5px solid var(--cor-acento-verde);
+    border: 5px solid var(--cor-acento-dourado); /* Borda DOURADA */
     border-radius: 15px;
-    box-shadow: 0 0 30px rgba(87, 242, 135, 0.8); /* Brilho neon */
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8); /* Brilho DOURADO neon */
 }
 
 
@@ -138,9 +144,9 @@ section h2 {
 .dica-card {
     background-color: var(--cor-secundaria);
     padding: 30px;
-    margin: 20px;
+    margin: 15px;
     border-radius: 15px;
-    border-left: 5px solid var(--cor-acento-rosa);
+    border-left: 5px solid var(--cor-acento-dourado); /* Dourado indica VALOR */
     width: 100%;
     max-width: 700px;
     text-align: left;
@@ -148,8 +154,8 @@ section h2 {
 }
 
 .dica-card:hover {
-    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
-    box-shadow: 0 10px 20px rgba(255, 76, 101, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
 }
 
 .dica-card h3 {
@@ -162,7 +168,7 @@ section h2 {
 /* ========================================= */
 .galeria-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo, 250px é o mínimo */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     width: 100%;
     max-width: 1200px;
@@ -179,7 +185,8 @@ section h2 {
 }
 
 .pack-item:hover {
-    border-color: var(--cor-acento-rosa);
+    border-color: var(--cor-acento-dourado);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
 }
 
 .pack-item img {
@@ -217,7 +224,7 @@ section h2 {
 }
 
 .social-links a {
-    color: var(--cor-acento-rosa);
+    color: var(--cor-acento-dourado); /* Ícones DOURADOS! */
     font-size: 3em;
     margin: 0 15px;
     transition: color 0.3s, transform 0.3s;
@@ -239,23 +246,39 @@ footer {
 }
 
 /* ========================================= */
-/* 9. RESPONSIVIDADE (PARA TELAS MENORES) */
+/* 9. RESPONSIVIDADE (MOBILE FIRST) */
 /* ========================================= */
 @media (max-width: 768px) {
-    header {
+    /* Mostra o botão do menu no mobile */
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* Esconde a navegação principal por padrão */
+    header nav {
+        display: none;
         flex-direction: column;
+        width: 100%;
         text-align: center;
-        padding: 15px 5%;
+        background-color: var(--cor-secundaria);
+        position: absolute;
+        top: 70px; /* Abaixo do header */
+        left: 0;
+        padding-bottom: 10px;
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
     }
 
-    header nav {
-        margin-top: 15px;
+    /* Estilo quando o menu está ativo (classe 'active' adicionada pelo JS) */
+    header nav.active {
+        display: flex;
     }
 
     header nav a {
-        margin: 0 10px;
-        display: inline-block;
-        font-size: 0.9em;
+        margin: 10px 0;
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 90%;
+        margin: 0 auto;
     }
 
     .hero-section h1 {
@@ -267,7 +290,6 @@ footer {
     }
 
     .video-destaque iframe {
-        height: 250px; /* Ajusta a altura do vídeo em telas menores */
+        height: 250px;
     }
-  }
-  
+}
