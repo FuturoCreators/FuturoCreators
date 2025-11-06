@@ -6,7 +6,10 @@
     --cor-fundo-principal: #1C1C3A; /* Azul/Roxo Escuro Moderno */
     --cor-acento-rosa: #FF4C65; /* Rosa Choque (Energia) */
     --cor-acento-verde: #57F287; /* Verde Neon (Botões de Ação) */
-    --cor-acento-dourado: #FFD700; /* DOURADO PURO (Prêmio/Destaque) */
+/* NOVO: Dourado mais forte, parecido com ouro */
+--cor-acento-dourado: #F7C513; 
+--cor-acento-brilho: #FFEE88; /* Um tom mais claro para brilhos e sombras */
+
     --cor-texto-claro: #FFFFFF;
     --cor-secundaria: #33335D; /* Cor para seções ou cards */
 
@@ -51,6 +54,17 @@ header {
 .logo strong {
     color: var(--cor-acento-dourado); /* DOURADO no destaque do nome! */
 }
+
+/* Estilo para a nova imagem da Logo */
+.creator-logo {
+    height: 50px; /* Define o tamanho da logo no cabeçalho */
+    width: auto;
+    /* Aplicamos um pequeno brilho para destacar o símbolo */
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7)); 
+}
+
+/* Remova ou ignore o código anterior que formatava o texto, pois agora é uma imagem. */
+
 
 header nav a {
     color: var(--cor-texto-claro);
@@ -120,6 +134,9 @@ section h2 {
     font-size: 3.5em;
     font-weight: 900;
     margin-bottom: 10px;
+    color: var(--cor-acento-dourado); /* Dourado intenso! */
+    text-shadow: 0 0 10px var(--cor-acento-brilho), 
+                 0 0 20px var(--cor-acento-dourado); /* Brilho Dourado Forte */
 }
 
 .hero-section p {
@@ -198,13 +215,18 @@ section h2 {
 
 .btn-download {
     display: inline-block;
-    background-color: var(--cor-acento-verde);
+    background-color: var(--cor-acento-dourado); /* AGORA É DOURADO! */
     color: var(--cor-fundo-principal);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 700;
     transition: background-color 0.3s;
+}
+
+.btn-download:hover {
+    background-color: var(--cor-acento-rosa); /* Rosa-choque no hover */
+    color: var(--cor-texto-claro);
 }
 
 .btn-download:hover {
